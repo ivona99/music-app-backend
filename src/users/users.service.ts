@@ -70,6 +70,7 @@ export class UsersService {
           }
 
     }
+
     private async  findOneU(id:number): Promise<UserI>{
         return this.usersRepository.findOne({where:{user_id:id}});
     }
