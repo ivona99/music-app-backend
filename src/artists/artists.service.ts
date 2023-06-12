@@ -19,7 +19,7 @@ export class ArtistsService {
         }
         //get one artist
         async findOne(id:number): Promise<Artist> {
-            return await this.artistsRepository.findOne({where: {artist_id:id}});
+            return await this.artistsRepository.findOne({where: {artist_id:id}, relations:{albums:true}});
         }
         
 }

@@ -10,6 +10,8 @@ import { ArtistsModule } from './artists/artists.module';
 import { AlbumsModule } from './albums/albums.module';
 import { Artist } from './artists/artist.entity';
 import { Album } from './albums/album.entity';
+import { SongsModule } from './songs/songs.module';
+import { Song } from './songs/song.entity';
 
 
 
@@ -21,6 +23,7 @@ import { Album } from './albums/album.entity';
       isGlobal: true
     }),
     
+    
 
 
     TypeOrmModule.forRoot({
@@ -30,13 +33,14 @@ import { Album } from './albums/album.entity';
       username: 'postgres',
       password: 'I?vana',
       database: 'music_app',
-      entities: [User, Artist, Album],
+      entities: [User, Artist, Album, Song],
       synchronize: true,
     }),
     UsersModule,
     AuthModule,
     ArtistsModule,
-    AlbumsModule
+    AlbumsModule,
+    SongsModule
   ],
   controllers: [AppController],
   providers: [AppService],

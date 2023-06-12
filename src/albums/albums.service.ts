@@ -21,6 +21,6 @@ export class AlbumsService {
 
     //get one album by id
     async findOne(id:number):Promise<Album>{
-        return await this.albumsRepository.findOne({where:{album_id:id}});
+        return await this.albumsRepository.findOne({where:{album_id:id}, relations:{artist:true, songs:true}});
     }
 }
