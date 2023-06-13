@@ -18,6 +18,7 @@ export class AlbumsService {
             },
         });
     }
+    //search by name of album
     async searchByName(title: string):Promise<Album> {
         return await this.albumsRepository.findOneBy({album_title:title});
     }

@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ArtistsService } from './artists.service';
 import { Artist } from './artist.entity';
 
@@ -10,6 +10,11 @@ export class ArtistsController {
     @Get()
     async findAll(): Promise<Artist[]> {
         return await this.artistsService.findAll();
+    }
+    //get artist in search by name
+     @Get('search')
+    async searchByName(@Query('name') name: string):Promise<Artist> {
+        return this.artistsService.searchByName(name);
     }
 
     //get one artist

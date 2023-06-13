@@ -13,8 +13,12 @@ export class SongsService {
     async findAll():Promise<Song[]> {
         return await this.songsRepository.find();
     }
-    //get one song
-
+    //search by name of artist
+    async searchByName(title: string):Promise<Song> {
+        return await this.songsRepository.findOneBy({song_title:title});
+    }
+        
+    //get by id
     async findOne(id:number):Promise<Song> {
         return await this.songsRepository.findOne({where:{song_id:id}});
     }

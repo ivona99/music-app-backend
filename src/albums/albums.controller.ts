@@ -11,6 +11,7 @@ export class AlbumsController {
     async findAll():Promise<Album[]> {
         return await this.albumsService.findAll();
     }
+    //get album in search by name
     @Get('search')
     async searchByName(@Query('name') name: string):Promise<Album> {
       return this.albumsService.searchByName(name);

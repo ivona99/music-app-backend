@@ -17,6 +17,11 @@ export class ArtistsService {
                   },
             });
         }
+        //search by name of artist
+        async searchByName(name: string):Promise<Artist> {
+        return await this.artistsRepository.findOneBy({artist_name:name});
+        }
+
         //get one artist
         async findOne(id:number): Promise<Artist> {
             return await this.artistsRepository.findOne({where: {artist_id:id}, relations:{albums:true}});
