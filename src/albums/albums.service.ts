@@ -21,6 +21,9 @@ export class AlbumsService {
     //search by name of album
     async searchByName(title: string):Promise<Album> {
         return await this.albumsRepository.findOneBy({album_title:title});
+        // return title ? (await this.findAll()).filter((album) => 
+        // album.album_title.toLocaleLowerCase().includes(title)
+        // ) : (await this.findAll());
     }
 
     //get one album by id
